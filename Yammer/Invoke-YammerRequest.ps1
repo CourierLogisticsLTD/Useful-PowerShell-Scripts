@@ -1,21 +1,28 @@
 function Invoke-YammerRequest {
     <#
     .SYNOPSIS
-        
+        Invoke a request to the Yammer API.
 
     .DESCRIPTION
-        
+        Invoke HTTP requests (GET, POST, etc.) to a path of the Yammer API.
+        Supply optional headers or body data.
 
-    .PARAMETER TenantId
-        
+    .PARAMETER Method
+        Request Method
 
-    .PARAMETER ClientId
-        
+    .PARAMETER Path
+        Yammer API Path
+
+    .PARAMETER Headers
+        Request Headers
+
+    .PARAMETER Body
+        Request Body
 
     .EXAMPLE
-        
+        Send a HTTP GET request to '/users/current.json' to fetch the current user.
 
-        PS> Invoke-YammerRequest
+        PS> Invoke-YammerRequest -Path "/users/current.json"
     #>
 
     [CmdletBinding()]
