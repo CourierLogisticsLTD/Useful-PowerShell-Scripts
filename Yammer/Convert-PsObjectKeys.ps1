@@ -10,7 +10,7 @@ function Convert-PsObjectKeys {
     begin {
         Write-Verbose "Convert-PsObjectKeys: Begin"
         Write-Verbose "Convert-PsObjectKeys: Param -InputObject ''"
-        Write-Verbose "Convert-PsObjectKeys: Param -Depth '$(Depth)'"
+        Write-Verbose "Convert-PsObjectKeys: Param -Depth '$($Depth)'"
         $InputObjectCopy = $InputObject
 
         $MinDepth = 0
@@ -39,7 +39,6 @@ function Convert-PsObjectKeys {
                 Write-Verbose "Update-PsObjectKeys: Begin"
                 $MaxDepthReached = $false
                 if ($CurrentDepth -gt $MaxDepth) {
-                    Write-Warning "Reached max depth!"
                     $MaxDepthReached = $true
                 }
                 $ObjTypeName = (($Obj).GetType()).Name
@@ -48,9 +47,9 @@ function Convert-PsObjectKeys {
             process {
                 Write-Verbose "Update-PsObjectKeys: Process"
                 Write-Verbose "Update-PsObjectKeys: Param -Obj ''"
-                Write-Verbose "Update-PsObjectKeys: Param -MinDepth '$(MinDepth)'"
-                Write-Verbose "Update-PsObjectKeys: Param -CurrentDepth '$(CurrentDepth)'"
-                Write-Verbose "Update-PsObjectKeys: Param -MaxDepth '$(MaxDepth)'"
+                Write-Verbose "Update-PsObjectKeys: Param -MinDepth '$($MinDepth)'"
+                Write-Verbose "Update-PsObjectKeys: Param -CurrentDepth '$($CurrentDepth)'"
+                Write-Verbose "Update-PsObjectKeys: Param -MaxDepth '$($MaxDepth)'"
                 switch ($ObjTypeName) {
                     "PSCustomObject" {
                         $RootProps = @($Obj.psObject.Properties | Where-Object { $_.MemberType -eq "NoteProperty" })
